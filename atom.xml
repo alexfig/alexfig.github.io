@@ -4,7 +4,7 @@
  <title>Fig's Blog</title>
  <link href="http://alexfig.github.io/atom.xml" rel="self"/>
  <link href="http://alexfig.github.io/"/>
- <updated>2015-01-10T09:47:33-08:00</updated>
+ <updated>2015-01-10T10:46:24-08:00</updated>
  <id>http://alexfig.github.io</id>
  <author>
    <name>Mark Otto</name>
@@ -25,7 +25,9 @@
   });
 &lt;/script&gt;
 
-&lt;p&gt;I&amp;#39;ve had problems with daytime sleepiness since I was a teenager. I used to attribute it to having a poor sleep schedule and just being a heavy sleeper. However I began to realize that even when I slept for 8+ hours, I would still get sleepy in the middle of the day. At the time, I was exercising regularly and had a fairly healthy diet so I couldn&amp;#39;t think of a reason why I would get so tired. A couple years ago I woke up half-conscious, in the middle of the night, almost choking and struggling to breathe. As soon as I realized what was happening I just started breathing normally again like nothing happened and went back to sleep. This happened a few times more times afterwards, but then stopped so I didn&amp;#39;t think much of it. Recently though, I ended up stumbling upon the wiki page for a sleep disorder called &lt;a href=&quot;http://en.wikipedia.org/wiki/Sleep_apnea&quot;&gt;sleep apnea&lt;/a&gt;, and as soon as I read the description, it registered in my head that this might be the cause of my sleep problems. I scheduled an appointment with a physician, but it&amp;#39;s not for a couple of weeks. In the meantime figured I&amp;#39;d try building something to monitor my breathing, mainly out of curiosity, but to also provide some data for my physician. I also had some microcontrollers collecting dust, so it gave me a reason to put one to use. &lt;/p&gt;
+&lt;p&gt;I&amp;#39;ve had problems with daytime sleepiness since I was a teenager. I used to attribute it to having a poor sleep schedule and just being a heavy sleeper. However I began to realize that even when I slept for 8+ hours, I would still get sleepy in the middle of the day. At the time, I was exercising regularly and had a fairly healthy diet so I couldn&amp;#39;t think of a reason why I would get so tired. A couple years ago I woke up in the middle of the night, almost choking and struggling to breathe. I was only half awake so I didn&amp;#39;t realize what was happening at first, but as soon as I did I just started breathing normally again like nothing happened and went back to sleep. This happened a few times more times afterwards, but then stopped occurring so I didn&amp;#39;t think much of it. &lt;/p&gt;
+
+&lt;p&gt;Recently though, I stumbled upon the wiki page for a sleep disorder called &lt;a href=&quot;http://en.wikipedia.org/wiki/Sleep_apnea&quot;&gt;sleep apnea&lt;/a&gt;, which is characterized by difficulty breathing during sleep. As soon as I read the description, it hit me that this might have been what I was experiencing in the past. I scheduled an appointment with a physician, but since it&amp;#39;s not for a couple week, I wanted to see if I could build something to monitor my breathing while I slept. I had a couple microcontrollers collecting dust, so this gave me a reason to put one to use.&lt;/p&gt;
 
 &lt;h2&gt;Breath Monitor&lt;/h2&gt;
 
