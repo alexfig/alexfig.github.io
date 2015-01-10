@@ -4,7 +4,7 @@
  <title>Fig's Blog</title>
  <link href="http://alexfig.github.io/atom.xml" rel="self"/>
  <link href="http://alexfig.github.io/"/>
- <updated>2015-01-10T09:04:41-08:00</updated>
+ <updated>2015-01-10T09:47:33-08:00</updated>
  <id>http://alexfig.github.io</id>
  <author>
    <name>Mark Otto</name>
@@ -25,11 +25,11 @@
   });
 &lt;/script&gt;
 
-&lt;p&gt;I&amp;#39;ve had problems with daytime sleepiness since I was a teenager. I used to attribute it to having a poor sleep schedule and just being a heavy sleeper. However I began to realize that even when I slept for 8+ hours, I would still get sleepy in the middle of the day. At the time, I was exercising regularly and had a fairly healthy diet so I couldn&amp;#39;t think of a reason why I would get so tired. A couple years ago I woke up half-conscious, in the middle of the night, almost choking and struggling to breathe. As soon as I realized what was happening I just started breathing normally again like nothing happened and went back to sleep. This happened a few times more times afterwards, but then stopped so I didn&amp;#39;t think much of it. Recently though, I ended up stumbling upon the wiki page for a sleep disorder called &lt;a href=&quot;http://en.wikipedia.org/wiki/Sleep_apnea&quot;&gt;sleep apnea&lt;/a&gt;, and as soon as I read the description, it registered in my head that this might be the cause of my sleep problems. I scheduled an appointment with a physician, but it&amp;#39;s not for a couple of weeks. In the meantime figured I&amp;#39;d try building something to monitor my breathing, mainly out of curiosity, but to also provide some data for my physician. I also had some microtrollers collecting dust, so it gave me a reason to put one to use. &lt;/p&gt;
+&lt;p&gt;I&amp;#39;ve had problems with daytime sleepiness since I was a teenager. I used to attribute it to having a poor sleep schedule and just being a heavy sleeper. However I began to realize that even when I slept for 8+ hours, I would still get sleepy in the middle of the day. At the time, I was exercising regularly and had a fairly healthy diet so I couldn&amp;#39;t think of a reason why I would get so tired. A couple years ago I woke up half-conscious, in the middle of the night, almost choking and struggling to breathe. As soon as I realized what was happening I just started breathing normally again like nothing happened and went back to sleep. This happened a few times more times afterwards, but then stopped so I didn&amp;#39;t think much of it. Recently though, I ended up stumbling upon the wiki page for a sleep disorder called &lt;a href=&quot;http://en.wikipedia.org/wiki/Sleep_apnea&quot;&gt;sleep apnea&lt;/a&gt;, and as soon as I read the description, it registered in my head that this might be the cause of my sleep problems. I scheduled an appointment with a physician, but it&amp;#39;s not for a couple of weeks. In the meantime figured I&amp;#39;d try building something to monitor my breathing, mainly out of curiosity, but to also provide some data for my physician. I also had some microcontrollers collecting dust, so it gave me a reason to put one to use. &lt;/p&gt;
 
 &lt;h2&gt;Breath Monitor&lt;/h2&gt;
 
-&lt;p&gt;First I needed to find a sensor I could use to monitor my breathing. I tried searching for sensors that could measure airflow, but all I could find were either expensive, medical grade equipment or devices I wouldn&amp;#39;t be able to use while I slept. Fortunately, I stumbled upon a &lt;a href=&quot;http://forum.arduino.cc/index.php?topic=157802.msg1335958#msg1335958&quot;&gt;forum post&lt;/a&gt; describing how you can use a temperature sensor to monitor your breath. The poster had success with a DS18B20 digitial thermometer so I just went with that. I ended up buying the waterproof version out of convenience, since it came prewired and I didn&amp;#39;t have the materials to wire one myself. &lt;/p&gt;
+&lt;p&gt;First I needed to find a sensor I could use to monitor my breathing. I tried searching for sensors that could measure airflow, but all I could find were either expensive, medical grade equipment or devices I wouldn&amp;#39;t be able to use while I slept. Fortunately, I stumbled upon a &lt;a href=&quot;http://forum.arduino.cc/index.php?topic=157802.msg1335958#msg1335958&quot;&gt;forum post&lt;/a&gt; describing how you can use a temperature sensor to monitor your breath. The poster had success with a DS18B20 digital thermometer so I just went with that. I ended up buying the waterproof version out of convenience, since it came prewired and I didn&amp;#39;t have the materials to wire one myself. &lt;/p&gt;
 
 &lt;p&gt;Next I had to think of something that could hold the sensor in front of my nose/mouth while I slept. My initial idea was to just poke the sensor through a dust mask and wear that. While looking for dust masks to buy, I found some that had exhalation valves and figured they would probably be a better choice since the valve can be used to direct air over the sensor. I decided on &lt;a href=&quot;http://www.amazon.com/3M-Particulate-Respirator-8233-N100/dp/B00OTZETMC/&quot;&gt;this mask&lt;/a&gt; because it looked the most comfortable and I needed to be able to sleep while wearing one. &lt;/p&gt;
 
@@ -37,7 +37,7 @@
 
 &lt;p&gt;After receiving everything, I first wanted to test the sensor to make sure it was sensitive enough to detect whether I was inhaling or exhaling. The DS18B20 is a digital sensor and communicates using the 1-Wire protocol, so reading its output isn&amp;#39;t as simple as it would be with an analog sensor. Luckily there are libraries that implement everything needed to use the sensor on an Arduino board, making things a lot easier. A tutorial that explains everything can be found &lt;a href=&quot;http://www.hacktronics.com/Tutorials/arduino-1-wire-tutorial.html&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;To test the sensor, I continously printed its output to the serial port. Initially it wasn&amp;#39;t sensitive enough to detect my breath, however this was because of the waterproof casing. After removing the casing it was able to monitor my breath fairly accurately. When I inhaled, the temperature would drop, and when I exhaled, it would increase, even when my breath was shallow. &lt;/p&gt;
+&lt;p&gt;To test the sensor, I continuously printed its output to the serial port. Initially it wasn&amp;#39;t sensitive enough to detect my breath, however this was because of the waterproof casing. After removing the casing it was able to monitor my breath fairly accurately. When I inhaled, the temperature would drop, and when I exhaled, it would increase, even when my breath was shallow. &lt;/p&gt;
 
 &lt;p&gt;Finally, I had to figure out how to attach the sensor to the mask. After a bit of trail and error, the solution I came up with was to just twist tie it to the inside of the valve housing, as seen below. This forces the valve (the yellow flap) to stay open, which make it easier to breathe and lets air flow over the sensor when inhaling. If you allow the valve to close, then it won&amp;#39;t cool down quick enough to detect when you inhale. &lt;/p&gt;
 
@@ -51,7 +51,7 @@
 
 &lt;h2&gt;Collecting and Analyzing the Data&lt;/h2&gt;
 
-&lt;p&gt;To collect the data I had my laptop log everything the Arduino printed to the serial port. I had the Arduino print out two columns of data, the time elasped and the temperature. Here is the main loop of my code:&lt;/p&gt;
+&lt;p&gt;To collect the data I had my laptop log everything the Arduino printed to the serial port. I had the Arduino print out two columns of data, the time elapsed and the temperature. Here is the main loop of my code:&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;void loop(void)
 { 
   time = millis();
@@ -63,8 +63,8 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;To analyze the data I used Octave. A plot of the raw data, as shown below, doesn&amp;#39;t really tell us anything. We have to convert the data to something more useful. According to wikipedia, a common metric for determining an apnea is the time interval between breaths. An interval of 10 seconds or greater can be considered an apnea. &lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Raw Data Plot&lt;/strong&gt;
-&lt;img src=&quot;/public/sleepdata/rawplot.jpg&quot; alt=&quot;Raw Data Plot&quot; title=&quot;Plot of raw data&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Plot of raw data&lt;/strong&gt;
+&lt;img src=&quot;/public/sleepdata/rawdata.jpg&quot; alt=&quot;Raw Data Plot&quot; title=&quot;Plot of raw data&quot;&gt;&lt;/p&gt;
 
 &lt;p&gt;Measuring the interval between breaths is relatively simple since the output of the sensor is free of noise (i.e., temperature only increases when exhaling and decreases when inhaling). We can iterate through the temperature data and if the temperature is increasing we know were exhaling and if it decreasing, were inhaling. This most likely wouldn&amp;#39;t work with an analog sensor. I wrote a function that iterates through the data, calculating the time between every inhale.&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;beginInhaleTime = data(1,1);
@@ -93,14 +93,14 @@ end;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;With the breath intervals calculated, I then plotted the data along with a couple more metrics to help determine the quality of my sleep.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Breath Interval Plot&lt;/strong&gt;
+&lt;p&gt;&lt;strong&gt;Breath interval plot&lt;/strong&gt;
 &lt;img src=&quot;/public/sleepdata/plot.JPG&quot; alt=&quot;Breath Interval Plot&quot; title=&quot;Final Plot&quot;&gt;&lt;/p&gt;
 
-&lt;p&gt;Looking at the plot, there seems to be evidence that I may have sleep apnea. According to wikipedia, 5 - 14.9 events per hour of sleep is considered mild. The data shows I had around 6.8 so that&amp;#39;s on the low end, however there is a cluster of 15 apneas at the 5-hour mark. &lt;/p&gt;
+&lt;p&gt;Looking at the plot, there seems to be evidence that I have sleep apnea. According to wikipedia, 5 - 14.9 events per hour of sleep is considered mild. The data shows I had around 6.8 so that&amp;#39;s on the low end, however there is a cluster of 15 apneas at the 5-hour mark. &lt;/p&gt;
 
 &lt;h2&gt;Further Analysis&lt;/h2&gt;
 
-&lt;p&gt;To gain some more insight on how I was breathing and confirm that the monitor was accurate, I placed a small mic under the mask to record myself while I slept. Using the plot I found the time at which one of the longer apneas occured and listened to the audio to see if I was actually having trouble breathing. Here&amp;#39;s what it sounded like:&lt;/p&gt;
+&lt;p&gt;To gain some more insight on how I was breathing and confirm that the monitor was accurate, I placed a small mic under the mask to record myself while I slept. Using the plot I found the time at which one of the longer apneas occurred and listened to the audio to see if I was actually having trouble breathing. Here&amp;#39;s what it sounded like:&lt;/p&gt;
 
 &lt;p&gt;&lt;audio src=&quot;/public/sleepdata/apnea1.mp3&quot; preload=&quot;auto&quot; /&gt;&lt;/p&gt;
 
